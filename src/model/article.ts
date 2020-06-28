@@ -8,8 +8,8 @@ const articleSchema = new Schema({
     description: String,
     content: String,
     author_id: Schema.Types.ObjectId,
-    createdAt: { type: Date, default: Date.now },
-    updatedAt: { type: Date, default: Date.now },
+    createdAt: { type: Date, default: Date.now() },
+    updatedAt: { type: Date, default: Date.now() },
 });
 
 export default mongoose.model("article", articleSchema);

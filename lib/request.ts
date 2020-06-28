@@ -10,15 +10,18 @@ interface IRouteOptions {
 }
 const method = (httpMethod: HTTPMethod) => (path: string, options: IRouteOptions = { tokenVerify: true }) => {
 
-    return (target: any, key: string): void => {
+    return (target: any, key: string, descriptor: PropertyDescriptor): void => {
+        
         //注意中间件的执行顺序
+        const mids = []
         //token验证
-        // options.tokenVerify ? target.middlewares.push(userTokenVerify) : ''
+        // options.tokenVerify ? mids.push(userTokenVerify) : ''
         //接口单独中间件
-        options.middlewares ? target.middlewares.push(...options.middlewares) : ''
+        options.middlewares ? mids.push(...options.middlewares) : ''
         //接口前缀
+        mids.push(target[key])
         const url = options.prefix ? options.prefix + path : path
-        target.middlewares ? router[httpMethod](url, ...target.middlewares, target[key]) : router[httpMethod](url, target[key])
+        router[httpMethod](url, ...mids)
     }
 }
 

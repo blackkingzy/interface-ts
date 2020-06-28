@@ -4,7 +4,7 @@
     "description": "A small frame",
     "main": "app.ts",
     "scripts": {
-        "test": "ts-node ./test.ts",
+        "test": "ts-node ./src/utils/date.ts",
         "dev": "ts-node ./src/server.ts",
         "build": "rm -r ./dist && tsc && node ./dist/src/server.js",
         "lint": "eslint src --ext .ts,.js --fix",
