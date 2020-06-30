@@ -32,7 +32,7 @@ class Article {
     @query({ _id: { type: "string", required: true } })
     async read(ctx: koa.Context) {
         const { article } = ctx.model;
-        await article.findById(ctx.request.query._id)
+        const result = await article.findById(ctx.request.query._id)
         ctx.body = "查询文章成功";
     }
 

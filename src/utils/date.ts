@@ -3,7 +3,7 @@ interface dataMap {
     [index: string]: number;
 }
 
-const format = (pattern = "yyyy.MM.dd hh:mm:ss") => {
+export const format = (pattern = "yyyy.MM.dd hh:mm:ss") => {
     const date = new Date();
     const map: dataMap = {
         y: date.getFullYear(), //年份
