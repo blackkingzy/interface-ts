@@ -2,14 +2,13 @@ import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
-    _id: Schema.Types.ObjectId,
     title: String,
-    tags: [{ _id: Schema.Types.ObjectId }],
+    tags: [String],
     description: String,
     content: String,
-    author_id: Schema.Types.ObjectId,
-    createdAt: { type: Date, default: Date.now() },
-    updatedAt: { type: Date, default: Date.now() },
-});
+    author_id: String,
+    status: { type: String, default: "draft" },
+    publish_time: { type: Date},
+}, { timestamps: true });
 
 export default mongoose.model("article", articleSchema);
