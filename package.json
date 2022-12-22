@@ -22,7 +22,7 @@
         "D": "^1.0.0",
         "async-validator": "^3.4.0",
         "glob": "^7.1.6",
-        "jsonwebtoken": "^8.5.1",
+        "jsonwebtoken": "^9.0.0",
         "koa": "^2.13.0",
         "koa-body": "^4.2.0",
         "koa-logger": "^3.2.1",
